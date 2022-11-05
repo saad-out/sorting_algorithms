@@ -27,6 +27,7 @@ void swap_values(int *array, int i, int j, int size);
 int lomuto_partition(int *array, int low, int high, int size);
 void recursive_partition(int *array, int low, int high, int size);
 void quick_sort(int *array, size_t size);
+void shell_sort(int *array, size_t size);
 
 
 #endif /* H */
