@@ -20,6 +20,10 @@ typedef struct listint_s
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
 void bubble_sort(int *array, size_t size);
-void selection_sort(int *array, size_t size);
+void selection_sort(int *array, size_t size;
+void swap_values(int *array, int i, int j, int size);
+int lomuto_partition(int *array, int low, int high, int size);
+void recursive_partition(int *array, int low, int high, int size);
+void quick_sort(int *array, size_t size);
 
 #endif /* H */
