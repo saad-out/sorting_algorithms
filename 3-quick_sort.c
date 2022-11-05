@@ -10,6 +10,7 @@
 void swap_values(int *array, int i, int j, int size)
 {
     int copy_num = 0;
+
     copy_num = array[i];
     array[i] = array[j];
     array[j] = copy_num;
@@ -34,13 +35,13 @@ int lomuto_partition(int *array, int low, int high, int size)
     {
         if (array[j] <= pivot)
         {
-            i++;
             if (j != i)
-                swap_values(array, i, j, size);
+                swap_values(array, j, i, size);
+            i++;
         }
     }
     if (i != high)
-        swap_values(array, i, j, size);
+        swap_values(array, i, high, size);
     return (i);
 }
 
