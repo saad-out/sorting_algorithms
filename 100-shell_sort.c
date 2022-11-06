@@ -1,5 +1,4 @@
 #include "sort.h"
-#include <stdio.h>
 
 /**
  * swap - swaps two values of an array
@@ -41,7 +40,6 @@ void shell_sort(int *array, size_t size)
 
 	while (h >= 1)
 	{
-		printf("h: %li\n", h);
 		for (j = h; (size_t)j < size; j++)
 		{
 			for (i = j - h; i >= 0; i -= h)
