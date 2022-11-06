@@ -1,4 +1,5 @@
 #include "sort.h"
+#include <stdio.h>
 
 /**
  * swap - swaps two values of an array
@@ -32,17 +33,15 @@ void swap(int *array, long int i, long int j)
  */
 void shell_sort(int *array, size_t size)
 {
-	long int h, next, i, j;
+	long int h, i, j;
 
-	next = 1;
-	while ((size_t)next < size)
-	{
-		h = next;
-		next = (h * 3) + 1;
-	}
+	h = 1;
+	while ((size_t)h <= (size - 1) / 9)
+		h = (h * 3) + 1;
 
 	while (h >= 1)
 	{
+		printf("h: %li\n", h);
 		for (j = h; (size_t)j < size; j++)
 		{
 			for (i = j - h; i >= 0; i -= h)
