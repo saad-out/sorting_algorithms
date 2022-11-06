@@ -112,7 +112,7 @@ void cocktail_sort_list(listint_t **list)
             {
                 swap_node_behind(list, &endptr, &iptr);
                 print_list((const listint_t *)*list);
-                swapped_flag = false;
+                swapped_flag = true;
             }
         }
     }
