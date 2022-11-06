@@ -32,11 +32,17 @@ void swap(int *array, long int i, long int j)
  */
 void shell_sort(int *array, size_t size)
 {
-	long int h, i, j;
+	long int h, next, i, j;
 
-	h = 1;
-	while ((size_t)h <= (size - 1) / 9)
-		h = (h * 3) + 1;
+	if (!array)
+		return;
+
+	h = next = 1;
+	while ((size_t)next < size)
+	{
+		h = next;
+		next = (h * 3) + 1;
+	}
 
 	while (h >= 1)
 	{
