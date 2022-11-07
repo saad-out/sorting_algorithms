@@ -1,11 +1,11 @@
 #include "sort.h"
 
 /**
- * len_list -   returns the length of a doubly linked list
- * @head:       pointer to the list
- *
- * Return: length of list
- */
+*len_list -	Returns the length of a doubly linked list
+*@head:     Pointer to the Doubly Linked List
+*
+* Return:	Length of Doubly Linked List
+*/
 int len_list(listint_t *head)
 {
 	int len = 0;
@@ -41,25 +41,25 @@ void swap_nodes(listint_t **head, listint_t **nodeP1, listint_t *nodeP2)
 
 
 /**
-* insertation_sort_list -   sorts a Doubly Linked List
+* insertion_sort_list -   sorts a Doubly Linked List
 *                           using the Insertion Sort Algorithm
 * @list:    A pointer to the head of doubly linked list of integers
 */
 void insertion_sort_list(listint_t **list)
 {
-    listint_t *i, *j, *tmp;
+	listint_t *i, *j, *tmp;
 
-    if (list == NULL || *list == NULL || len_list(*list) < 2)
-        return;
+	if (list == NULL || *list == NULL || len_list(*list) < 2)
+		return;
 
-    for (i = (*list)->next; i != NULL; i = tmp)
-    {
-        tmp = i->next;
-        j = i->prev;
-        while (j != NULL && j->n > i->n)
-        {
-            swap_nodes(list, &j, i);
-            print_list((const listint_t *)*list);
-        }
-    }
+	for (i = (*list)->next; i != NULL; i = tmp)
+	{
+		tmp = i->next;
+		j = i->prev;
+		while (j != NULL && j->n > i->n)
+		{
+			swap_nodes(list, &j, i);
+			print_list((const listint_t *)*list);
+		}
+	}
 }
