@@ -28,23 +28,23 @@ int len_list(listint_t *head)
 */
 void swap_node_front(listint_t **list, listint_t **endptr, listint_t **iptr)
 {
-    listint_t *tmp = (*iptr)->next;
+	listint_t *tmp = (*iptr)->next;
 
-    if ((*iptr)->prev != NULL)
-        (*iptr)->prev->next = tmp;
-    else
-        *list = tmp;
+	if ((*iptr)->prev != NULL)
+		(*iptr)->prev->next = tmp;
+	else
+		*list = tmp;
 
-    tmp->prev = (*iptr)->prev;
-    (*iptr)->next = tmp->next;
-    if (tmp->next != NULL)
-        tmp->next->prev = *iptr;
-    else
-        *endptr = *iptr;
+	tmp->prev = (*iptr)->prev;
+	(*iptr)->next = tmp->next;
+	if (tmp->next != NULL)
+		tmp->next->prev = *iptr;
+	else
+		*endptr = *iptr;
 
-    (*iptr)->prev = tmp;
-    tmp->next = *iptr;
-    *iptr = tmp;
+	(*iptr)->prev = tmp;
+	tmp->next = *iptr;
+	*iptr = tmp;
 }
 
 /**
@@ -56,23 +56,23 @@ void swap_node_front(listint_t **list, listint_t **endptr, listint_t **iptr)
 */
 void swap_node_behind(listint_t **list, listint_t **endptr, listint_t **iptr)
 {
-    listint_t *tmp = (*iptr)->prev;
+	listint_t *tmp = (*iptr)->prev;
 
-    if ((*iptr)->next != NULL)
-        (*iptr)->next->prev = tmp;
-    else
-        *endptr = tmp;
+	if ((*iptr)->next != NULL)
+		(*iptr)->next->prev = tmp;
+	else
+		*endptr = tmp;
 
-    tmp->next = (*iptr)->next;
-    (*iptr)->prev = tmp->prev;
-    if (tmp->prev != NULL)
-        tmp->prev->next = *iptr;
-    else
-        *list = *iptr;
+	tmp->next = (*iptr)->next;
+	(*iptr)->prev = tmp->prev;
+	if (tmp->prev != NULL)
+		tmp->prev->next = *iptr;
+	else
+		*list = *iptr;
 
-    (*iptr)->next = tmp;
-    tmp->prev = *iptr;
-    *iptr = tmp;
+	(*iptr)->next = tmp;
+	tmp->prev = *iptr;
+	*iptr = tmp;
 }
 
 /**
@@ -84,37 +84,37 @@ void swap_node_behind(listint_t **list, listint_t **endptr, listint_t **iptr)
 
 void cocktail_sort_list(listint_t **list)
 {
-    listint_t *endptr, *iptr;
-    bool swapped_flag = true;
+	listint_t *endptr, *iptr;
+	bool swapped_flag = true;
 
-    if (list == NULL || *list == NULL || len_list(*list) < 2)
-        return;
+	if (list == NULL || *list == NULL || len_list(*list) < 2)
+		return;
 
-    /* Set endptr */
-    for (endptr = *list; endptr->next != NULL;)
-        endptr = endptr->next;
+	/* Set endptr */
+	for (endptr = *list; endptr->next != NULL;)
+		endptr = endptr->next;
 
-    while (swapped_flag == true)
-    {
-        swapped_flag = false;
-        for (iptr = *list; iptr != endptr; iptr = iptr->next)
-        {
-            if (iptr->n > iptr->next->n)
-            {
-                swap_node_front(list, &endptr, &iptr);
-                print_list((const listint_t *)*list);
-                swapped_flag = true;
-            }
-        }
-        for (iptr = iptr->prev; iptr != *list; iptr = iptr->prev)
-        {
-            if (iptr->n < iptr->prev->n)
-            {
-                swap_node_behind(list, &endptr, &iptr);
-                print_list((const listint_t *)*list);
-                swapped_flag = true;
-            }
-        }
-    }
+	while (swapped_flag == true)
+	{
+		swapped_flag = false;
+		for (iptr = *list; iptr != endptr; iptr = iptr->next)
+		{
+			if (iptr->n > iptr->next->n)
+			{
+				swap_node_front(list, &endptr, &iptr);
+				print_list((const listint_t *)*list);
+				swapped_flag = true;
+			}
+		}
+		for (iptr = iptr->prev; iptr != *list; iptr = iptr->prev)
+		{
+			if (iptr->n < iptr->prev->n)
+			{
+				swap_node_behind(list, &endptr, &iptr);
+				print_list((const listint_t *)*list);
+				swapped_flag = true;
+			}
+		}
+	}
 
 }
