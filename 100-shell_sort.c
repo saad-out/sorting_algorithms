@@ -34,7 +34,7 @@ void shell_sort(int *array, size_t size)
 {
 	long int h, next, i, j;
 
-	if (!array)
+	if (!array || (size == 1))
 		return;
 
 	h = next = 1;

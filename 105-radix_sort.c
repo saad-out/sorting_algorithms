@@ -20,7 +20,7 @@ void radix_sort(int *array, size_t size)
 {
 	int max, i;
 
-	if (!array)
+	if (!array || (size == 1))
 		return;
 
 	max = largest_number(array, size);

@@ -38,7 +38,7 @@ void counting_sort(int *array, size_t size)
 	int range, i, val;
 	int *counting_arr, *tmp_arr;
 
-	if (!array)
+	if (!array || (size == 1))
 		return;
 
 	/* set up counting array */
