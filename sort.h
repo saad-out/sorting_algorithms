@@ -47,6 +47,6 @@ void swap_node_front(listint_t **, listint_t **, listint_t **);
 void swap_node_behind(listint_t **, listint_t **, listint_t **);
 void counting_sort(int *array, size_t size);
 void heap_sort(int *array, size_t size);
-
+void radix_sort(int *array, size_t size);
 
 #endif /* H */
