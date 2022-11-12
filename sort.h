@@ -48,5 +48,8 @@ void swap_node_behind(listint_t **, listint_t **, listint_t **);
 void counting_sort(int *array, size_t size);
 void heap_sort(int *array, size_t size);
 void radix_sort(int *array, size_t size);
+void merge_sort(int *array, size_t size);
+void array_split_recursive(int *, int *, size_t, size_t);
+void merge_subarr(int *, int *, size_t, size_t, size_t);
 
 #endif /* H */
