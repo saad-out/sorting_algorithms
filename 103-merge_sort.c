@@ -8,18 +8,18 @@
 */
 void merge_sort(int *array, size_t size)
 {
-    int *buffer;
+	int *buffer;
 
-    if (array == NULL || size < 2)
-        return;
+	if (array == NULL || size < 2)
+		return;
 
-    buffer = malloc(sizeof(int) * size);
-    if (buffer == NULL)
-        return;
+	buffer = malloc(sizeof(int) * size);
+	if (buffer == NULL)
+		return;
 
-    array_split_recursive(array, buffer, 0, size);
+	array_split_recursive(array, buffer, 0, size);
 
-    free(buffer);
+	free(buffer);
 }
 
 
@@ -33,15 +33,15 @@ void merge_sort(int *array, size_t size)
 */
 void array_split_recursive(int *subarr, int *buffer, size_t front, size_t back)
 {
-    size_t mid_point;
+	size_t mid_point;
 
-    if (back - front > 1)
-    {
-        mid_point = front + (back - front) / 2;
-        array_split_recursive(subarr, buffer, front, mid_point);
-        array_split_recursive(subarr, buffer, mid_point, back);
-        merge_subarr(subarr, buffer, front, mid_point, back);
-    }
+	if (back - front > 1)
+	{
+		mid_point = front + (back - front) / 2;
+		array_split_recursive(subarr, buffer, front, mid_point);
+		array_split_recursive(subarr, buffer, mid_point, back);
+		merge_subarr(subarr, buffer, front, mid_point, back);
+	}
 }
 
 
@@ -53,30 +53,26 @@ void array_split_recursive(int *subarr, int *buffer, size_t front, size_t back)
 * @mid_point:       The middle index of the array
 * @back:            The back index of the array
 */
-void merge_subarr(int *subarr, int *buffer, size_t front, size_t mid_point, size_t back)
+void merge_subarr(int *subarr, int *buffer, size_t front, size_t mid_point,
+size_t back)
 {
-    size_t i, j, k = 0;
+	size_t i, j, k = 0;
 
-    printf("Merging...\n[left]: ");
-    print_array(subarr + front, mid_point - front);
+	printf("Merging...\n[left]: ");
+	print_array(subarr + front, mid_point - front);
 
-    printf("[right]: ");
-    print_array(subarr + mid_point, back - mid_point);
+	printf("[right]: ");
+	print_array(subarr + mid_point, back - mid_point);
 
-    for (i = front, j = mid_point; i < mid_point && j < back; k++)
-        buffer[k] = (subarr[i] < subarr[j]) ? subarr[i++] : subarr[j++];
-    for (; i < mid_point; i++)
-        buffer[k++] = subarr[i];
-    for (; j < back; j++)
-        buffer[k++] = subarr[j];
-    for (i = front, k = 0; i < back; i++)
-        subarr[i] = buffer[k++];
+	for (i = front, j = mid_point; i < mid_point && j < back; k++)
+		buffer[k] = (subarr[i] < subarr[j]) ? subarr[i++] : subarr[j++];
+	for (; i < mid_point; i++)
+		buffer[k++] = subarr[i];
+	for (; j < back; j++)
+		buffer[k++] = subarr[j];
+	for (i = front, k = 0; i < back; i++)
+		subarr[i] = buffer[k++];
 
-    printf("[Done]: ");
-    print_array(subarr + front, back - front);
+	printf("[Done]: ");
+	print_array(subarr + front, back - front);
 }
-
-
-
-
-
