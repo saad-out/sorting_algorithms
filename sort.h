@@ -59,5 +59,9 @@ void swap_ints(int *, int *);
 void bitonic_merge(int *, size_t, size_t, size_t, char);
 void bitonic_sort(int *array, size_t size);
 void bitonic_seq(int *, long unsigned int, size_t, long unsigned int, char);
+void swap_ints(int *, int *);
+int hoare_partition(int *, size_t, int, int);
+void hoare_sort(int *, size_t, int, int);
+void quick_sort_hoare(int *array, size_t size);
 
 #endif /* H */
